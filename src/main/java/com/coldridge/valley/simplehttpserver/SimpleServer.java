@@ -10,29 +10,35 @@ import java.net.Socket;
  */
 public class SimpleServer {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         init();
     }
 
-    private static void init() throws Exception{
+    private static void init() throws Exception {
 
 
-        ServerSocket server = new ServerSocket(12306,1,InetAddress.getByName("127.0.0.1"));
+        ServerSocket server = new ServerSocket(12306, 1, InetAddress.getByName("127.0.0.1"));
 
+        System.out.println("i have already to watch 127.0.0.1:12306 port wating......");
         Socket accept = server.accept();
+        System.out.println("I have accept one socket running");
 
         InputStream in = accept.getInputStream();
         OutputStream out = accept.getOutputStream();
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(in));
         StringBuilder sb = new StringBuilder();
-        String line = "";
-        while((line = reader.readLine())!=null){
-            sb.append(line);
+        while (true) {
+            int i = 0;
+            while (i != -1) {
+                i = in.read();
+                sb.append((char) i);
+            }
+            break;
         }
-
-        if(sb.toString().contains("HTTP")){
-            PrintWriter writer =new PrintWriter(out);
+        System.out.println("mssage is " + sb.toString());
+        if (sb.toString().contains("HTTP")) {
+            PrintWriter writer = new PrintWriter(out);
             writer.write("fffffffffffffffuuuuuuuuuuuuuuuuuuuccccccccccccccckkkkkkkkk");
             writer.write(sb.toString());
             writer.flush();

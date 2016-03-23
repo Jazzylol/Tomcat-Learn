@@ -1,0 +1,32 @@
+# Gradle work
+.gradle
+build
+
+# Maven work
+target
+
+# IntelliJ IDEA work
+*.idea
+*.iml
+*.ipr
+*.iws
+.idea/
+**/.idea/
+atlassian-ide-plugin.xml
+
+# Android
+local.properties
+
+# Mac OS X
+.DS_Store
+
+# Except .gitignore
+!.gitignore
+
+#Eclipse
+target/
+.classpath
+.project
+.settings/
+/target/
+/src/main/webapp/WEB-INF/classes

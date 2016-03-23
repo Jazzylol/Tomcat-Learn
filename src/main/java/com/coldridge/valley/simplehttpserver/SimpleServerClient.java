@@ -31,6 +31,10 @@ public class SimpleServerClient {
         printWriter.flush();
         //read the response
 
+
+        System.out.println("I have print some message!");
+
+
         StringBuilder sb = new StringBuilder();
         while (true){
             if(reader.ready()){
